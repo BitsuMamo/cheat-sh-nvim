@@ -1,5 +1,6 @@
 --TODO: Add closing of window when buffer is changed
 --TODO: Add fucntionality of changing some variable such as window height and the like
+--TODO: Add fucntionality of searching cht.sh from selected text
 
 -- Function to open the termial with a command
 local function openTerminal(command)
