@@ -20,10 +20,8 @@ local function openWindow()
         height=height - 40,
         row = 0,
         col = 2,
-        --border = {"","","","*","","","","*"}
-        --border = "rounded"
-        -- Theme taken form telescope
-        border = {"╭", "─", "╮" ,"│", "╯", "─","╰", "|"}
+
+        border = {"╭", "─", "╮" ,"│", "╯", "─","╰", "│"}
     })
 
     -- Makes new windows follow same theme as the editor
@@ -31,7 +29,7 @@ local function openWindow()
 end
 
 -- Fucntion to open a window with all the cht.sh info for the word under the cursor
-local function cheatSheat()
+local function cheatSheet()
     local fileType = vim.bo.filetype
     local wordUnderCursor = vim.fn.expand("<cword>")
 
@@ -53,7 +51,7 @@ end
 --TODO: Add closing of window when buffer is changed
 
 return {
-    cheatSheat = cheatSheat,
+    cheatSheet = cheatSheet,
     onResize = onResize,
 }
 
