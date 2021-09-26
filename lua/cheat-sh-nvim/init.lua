@@ -1,5 +1,5 @@
 --TODO: Add closing of window when buffer is changed
---TODO: Add fucntionality of changing some variable such as window height and the like
+--TODO: Added global fucntionality but can't chage values from init.vim
 --TODO: Add fucntionality of searching cht.sh from selected text
 
 -- Function to open the termial with a command
@@ -12,10 +12,14 @@ end
 
 -- Function to create window
 local function createWindow(bufHandler, width, height, widthOffset, heightOffset, row, col, type)
+    -- To avoid errors with negative width and height
+    width = math.abs(width-widthOffset)
+    height = math.abs(height-heightOffset)
+
     local window = vim.api.nvim_open_win(bufHandler, true ,{
         relative=type,
-        width=width - widthOffset,
-        height=height - heightOffset,
+        width=width,
+        height=height,
         row = row,
         col = col,
 
@@ -33,9 +37,18 @@ local function openWindow(isCommand)
     local bufHandler = vim.api.nvim_create_buf(false, true)
 
     if isCommand then
-        createWindow(bufHandler, width, height, 10, 10, 5, 5, "editor")
+        local widthOffset = vim.g["CommandWidthOffset"]
+        local heightOffset = vim.g["CommandHeightOffset"]
+
+        createWindow(bufHandler, width, height, widthOffset, heightOffset, 5, 5, "editor")
     else
-        createWindow(bufHandler, width, height, 40, 40, 0, 2, "cursor")
+        local widthOffset = vim.g["CursorWidthOffset"]
+        local heightOffset = vim.g["CursorHeightOffset"]
+
+        local CursorRowOffset = math.abs(vim.g["CursorRowOffset"])
+        local CursorColOffset = math.abs(vim.g["CursorColOffset"])
+
+        createWindow(bufHandler, width, height, widthOffset, heightOffset, CursorRowOffset, CursorColOffset, "cursor")
     end
 
 
