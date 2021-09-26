@@ -1,11 +1,11 @@
-# A simple plugin that gets information from Cheat Sheet(cht.sh)
+# A simple plugin that gets information from [Cheat Sheet](http://cht.sh)
 ### Opens a floating window with terminal. It get cheat sheet with the file type of the current buffer and the word under the cursor. It can also propmt you an input and get cht.sh info based on the input.
 
 # Usage
 ## Create a key binding that call the lua function
 ## Example
 ### `nnoremap <leader>cc :lua require('cheat-sh-nvim').cheatSheet()<CR>`
-### `nnoremap <leader>cs :lua require('cheat-sh-nvim').cheatSheetCommand(vim.fn.input("Cheat Sheat> "))<CR>`
+### `nnoremap <leader>cs :lua require('cheat-sh-nvim').cheatSheetCommand(vim.fn.input("Cheat Sheat> "))<CR>'`
 
 ### After setting up the first key binding you can call it anywhere it will get the current buffer file type, and the current word under cursor then do a quick cheat.sh look up.
 ### After settign up the second key binding you can call it and it will ask for a propmt where you can input and get cht.sh data.
