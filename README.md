@@ -8,7 +8,12 @@ It is a plugin which allows you to get [cht.sh](http://cht.sh) functionality rig
 It currently supports two types of functionality which are cheat sheet with command and cheat sheet for current word.
 The new floating windows follow the same theme as the one you have set.
 
-![Preview](https://imgur.com/KvzYzCY)
+### Command Mode Preview
+![Preview](https://i.imgur.com/KvzYzCY.png)
+![Preview](https://i.imgur.com/ziSHfmn.png)
+
+### Under Cursor Mode Preview
+![Preview](https://i.imgur.com/63qkiV4.png)
 
 ## Getting Started
 
