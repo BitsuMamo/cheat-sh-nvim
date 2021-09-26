@@ -6,15 +6,16 @@ fun! CheatSheetCursor()
 endfun
 
 fun! CheatSheetCommand()
+
     lua for k in pairs(package.loaded) do if k:match("^cheat%-sh%-nvim") then package.loaded[k] = nil end end
     lua require("cheat-sh-nvim").cheatSheetCommand(vim.fn.input("Cheat Sheat> "))
 endfun
 
-let g:CommandWidthOffset = 10
-let g:CommandHeightOffset = 10
+let g:CommandWidthRatio = 1
+let g:CommandHeightRatio = 0.75
 
-let g:CursorWidthOffset = 70
-let g:CursorHeightOffset = 40
+let g:CursorWidthRatio = 0.75
+let g:CursorHeightRatio = 0.25
 
 let g:CursorRowOffset = 0
 let g:CursorColOffset = 2
