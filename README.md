@@ -9,11 +9,11 @@ It currently supports two types of functionality which are cheat sheet with comm
 The new floating windows follow the same theme as the one you have set.
 
 ### Command Mode Preview
-![Preview](https://i.imgur.com/KvzYzCY.png)
-![Preview](https://i.imgur.com/ziSHfmn.png)
+![Preview](https://i.imgur.com/mHavPZi.png)
+![Preview](https://i.imgur.com/kHXZzCJ.png)
 
 ### Under Cursor Mode Preview
-![Preview](https://i.imgur.com/63qkiV4.png)
+![Preview](https://i.imgur.com/ytA1Aig.png)
 
 ## Getting Started
 
