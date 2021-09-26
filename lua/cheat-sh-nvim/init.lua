@@ -1,3 +1,6 @@
+--TODO: Add closing of window when buffer is changed
+--TODO: Add fucntionality of changing some variable such as window height and the like
+
 -- Function to open the termial with a command
 local function openTerminal(command)
     local command_string = "terminal "..command
@@ -44,12 +47,9 @@ local function onResize()
     local stats = vim.api.nvim_list_uis()[1]
     local width = stats.width
     local height = stats.height
-
-    --print("window size", width, height)
 end
 
---TODO: Add closing of window when buffer is changed
-
+-- Used to make functions that are only needed accesible
 return {
     cheatSheet = cheatSheet,
     onResize = onResize,
