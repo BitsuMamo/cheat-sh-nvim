@@ -11,20 +11,34 @@ local function openTerminal(command)
 end
 
 -- Function to create window
-local function createWindow(bufHandler, width, height, widthOffset, heightOffset, row, col, type)
+local function createWindow(bufHandler, width, height, widthRatio, heightRatio, row, col, type, anchor)
     -- To avoid errors with negative width and height
-    width = math.abs(width-widthOffset)
-    height = math.abs(height-heightOffset)
+    width = math.abs(math.floor(width * widthRatio))
+    height = math.abs(math.floor(height * heightRatio))
+    if anchor == nil then
+        win_opts = {
+            relative=type,
+            width=width,
+            height=height,
+            row = row,
+            col = col,
 
-    local window = vim.api.nvim_open_win(bufHandler, true ,{
-        relative=type,
-        width=width,
-        height=height,
-        row = row,
-        col = col,
+            border = {"╭", "─", "╮" ,"│", "╯", "─","╰", "│"}
+    }
+    else
+        win_opts = {
+            relative=type,
+            width=width,
+            height=height,
+            row = row,
+            col = col,
 
-        border = {"╭", "─", "╮" ,"│", "╯", "─","╰", "│"}
-    })
+            border = {"╭", "─", "╮" ,"│", "╯", "─","╰", "│"},
+            anchor = anchor
+        }
+    end
+
+    local window = vim.api.nvim_open_win(bufHandler, true, win_opts)
 end
 
 -- Function to and open window
@@ -37,18 +51,18 @@ local function openWindow(isCommand)
     local bufHandler = vim.api.nvim_create_buf(false, true)
 
     if isCommand then
-        local widthOffset = vim.g["CommandWidthOffset"]
-        local heightOffset = vim.g["CommandHeightOffset"]
+        local widthRatio = vim.g["CommandWidthRatio"]
+        local heightRatio = vim.g["CommandHeightRatio"]
 
-        createWindow(bufHandler, width, height, widthOffset, heightOffset, 5, 5, "editor")
+        createWindow(bufHandler, width, height, widthRatio, heightRatio, 5, 5, "editor", "NW")
     else
-        local widthOffset = vim.g["CursorWidthOffset"]
-        local heightOffset = vim.g["CursorHeightOffset"]
+        local widthRatio = vim.g["CursorWidthRatio"]
+        local heightRatio = vim.g["CursorHeightRatio"]
 
         local CursorRowOffset = math.abs(vim.g["CursorRowOffset"])
         local CursorColOffset = math.abs(vim.g["CursorColOffset"])
 
-        createWindow(bufHandler, width, height, widthOffset, heightOffset, CursorRowOffset, CursorColOffset, "cursor")
+        createWindow(bufHandler, width, height, widthRatio, heightRatio, CursorRowOffset, CursorColOffset, "cursor")
     end
 
 
