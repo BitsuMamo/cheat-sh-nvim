@@ -14,12 +14,13 @@ endfun
 let g:CommandWidthRatio = 1
 let g:CommandHeightRatio = 0.75
 
-let g:CursorWidthRatio = 0.75
+let g:CursorWidthRatio = 0.60
 let g:CursorHeightRatio = 0.25
 
 let g:CursorRowOffset = 0
 let g:CursorColOffset = 2
 
+" This is basically Event listner for the differnt functions
 augroup CheatSheetCursor
     autocmd!
     autocmd vimResized * :lua require("cheat-sh-nvim").onResize()
