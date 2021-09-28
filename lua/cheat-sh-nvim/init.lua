@@ -83,7 +83,7 @@ end
 -- String split function. By default splits " "
 local function splitString(input, separator)
     if separator == nil then
-        sep = "%s"
+        separator = "%s"
     end
 
     local wordList = {}
@@ -117,8 +117,8 @@ local function cheatSheetCommand(input)
 
         local command = language.."/"..searchPharse
 
-        window = openWindow(true)
-        termial = openTerminal(command)
+        openWindow(true)
+        openTerminal(command)
     else
         print("Error. No input or Wrong input")
     end
